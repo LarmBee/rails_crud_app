@@ -1,0 +1,19 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Beers</h1>
+<% if logged_in? %>
+    <h3>You are Logged In As: <%= current_user.username %></h3>
+<%end%>
+  <button class="beerbtn">
+      Logout
+  </button>
+<div id="beers">
+  <% @beers.each do |beer| %>
+    <%= render beer %>
+    <p>
+      <%= link_to "Show this beer", beer %>
+    </p>
+  <% end %>
+</div>
+
+<button class="newbeer"><%= link_to "New beer", new_beer_path %></button>
